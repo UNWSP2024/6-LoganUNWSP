@@ -1,15 +1,24 @@
+#Logan H's Random Dice
 
-# Program #1: Random Dice
-# Write a "randDice" function (with no input) that randomly chooses two numbers between 1 and 6 (inclusive) and then adds them (this is to simulate the rolling of 2 dice).  
-# The dice sum will be the output of this function.
+# 1) IMPORT the random module to let us generate random numbers
+import random
 
+# 2) DEF FUNCTION random dice roll as 2 random numbers between 1-6, then return both #'s
 def randDice():
-    # Write your logic to generate 2 numbers between 1 and 6 here
+    die1 = random.randint(1, 6)
+    die2 = random.randint(1, 6)
+    return die1 + die2
 
-    # Sum 2 numbers
+# 3) ADD the 2 #'s to total
+total_sum = 0
+num_rolls = 100
 
-    # return sum to calling function
+# 4) RERUN, until the number of times we rolled the dice is equal to number of rolls
+#    (number of rolls = (num_rolls = 100))
+for _ in range(num_rolls):
+    total_sum += randDice()
 
-#########
-# Then write a mainline that calls the "randDice" function 100 times in a for loop.  
-# The mainline then prints the average of the 100 rolls, rounded to the nearest 0.01.
+# 5) AVERAGE by dividing the sum total of the dice rolls and the number of rolls (100)
+average = total_sum / num_rolls
+# 6) PRINT the average and round to 2 decimal places.
+print("Average roll:", round(average, 2))
